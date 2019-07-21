@@ -51,11 +51,11 @@ class Footer extends Component {
           							<h6 className="abs">Agent Registration</h6>
           						</Grid>
           						<Grid className="about_us" item xs={12} sm={4} md={4} lg={4} xl={4}>
-          							<h6 className="dib">Entire Cities</h6>
-          							<h6 className="abs">Janakpur</h6>
-          							<h6 className="abs">Jaleswar</h6>
-          							<h6 className="abs">MahendraNagar</h6>
-          							<h6 className="abs">Kathmandu</h6>
+          							<h6 className="dib">Entire Nepal</h6>
+          							<h6 className="abs">Janakpur city</h6>
+          							<h6 className="abs">JaleswarCity</h6>
+          							<h6 className="abs">MahendraNagar city</h6>
+          							<h6 className="abs">Kathmandu city</h6>
           						</Grid>
           					</Grid>
 
@@ -64,13 +64,20 @@ class Footer extends Component {
           			<Grid className="about_us" item xs={12} sm={4} md={4} lg={4} xl={4}>
           				<h6 className="dib">BusYatra</h6>
           				<h6 className="promotion">
-          						BusYatra is the Nepal's largest online bus ticket booking service trusted by lot's of happy customers intire country. BusYatra offers bus ticket booking through its website for all major routes.
+          						BusYatra is the Nepal's largest online bus ticket booking service trusted by lot's of happy customers entire country. BusYatra offers bus ticket booking through its website for all major routes.
           				</h6>			
           			</Grid>
           		</Grid>
           </Grid>
         </div>
-     
+     	   
+
+         <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+       			<div className="bg-gray-800">
+       				<p className="text-sm mb-md-0 coppyright">© 2019 BusYatra.  All rights reserved.</p>
+       			</div>
+         </Grid>
+
       </div>
     );
   }

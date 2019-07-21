@@ -112,11 +112,12 @@ nav a {
 }
 
 
-nav ul li ul li:hover { background: #000000; }
+nav ul li ul li:hover { background: #000000; color:yellow; text-decoration: none}
 
 /* Background color change on Hover */
 nav a:hover { 
-  background-color: #000000; 
+  background-color: #000000;
+  color:yellow; text-decoration: none; 
 }
 
 /* Hide Dropdowns by Default

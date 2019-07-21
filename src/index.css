@@ -512,6 +512,12 @@ iPad 3
     text-align: center;
     padding-bottom: 1rem;
    }
+   .bg-gray-800 {
+    margin-top: 2rem !important;
+    }
+    .vehicle_from_text{
+        display: none;
+    }
 }
 
 

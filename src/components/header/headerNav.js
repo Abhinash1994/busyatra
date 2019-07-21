@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
 import './navigation.css'
+
+import { Link } from 'react-router-dom';
 class HeaderNav extends Component {
   render() {
     return (
@@ -33,7 +35,7 @@ class HeaderNav extends Component {
 				                <li>
 				                   
 				                    <label for="drop-1" className="toggle">BUS TICKETS </label>
-				                    <a href="/bus-ticket">BUS TICKETS </a>
+				                     	<Link to="/bus-ticket">BUS TICKETS </Link>
 				                    <input type="checkbox" id="drop-1"/>
 				                    <ul>
 				                        <li><a href="/">Harhar Mahadev</a></li>

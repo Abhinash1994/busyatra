@@ -245,7 +245,8 @@ position: relative;
     overflow: hidden;
     width: 100%;
     padding: 55px 0px;
-    background-color: #23282f;
+    background-color: #232F3E;
+    padding-bottom: 0px;
     /*background: url("http://themesground.com/motocart-demo/V1/images/newsletter-bg.jpg") no-repeat bottom right;*/
 }
 .newsletter-row .col1 {
@@ -336,7 +337,91 @@ position: relative;
 }
 .footer_info .promotion{
     color: #b1babf;
-    cursor: pointer;
-    margin-bottom: 10px;
-    font-weight: 300;
+    width: auto;
+    height: 60px;
+    font-size: 15px;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.43;
+    letter-spacing: .3px;
 }
+.bg-gray-800 {
+    background: #131A22 !important;
+    margin-top: 1rem;
+}
+ .coppyright {
+    color: #aaa;
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.total_vehicle_search{
+    min-height: 90vh;
+   
+}
+
+.vehicle_from_text{
+   padding: 15px 10px 15px 25px;
+    margin-bottom: 20px;
+    border: 1px solid #dfdfdf;
+    box-shadow: 0 2px 4px 0 hsla(0,0%,71%,.5);
+
+}
+.xx_arrow_right{
+        color: #b5b1b1;
+    text-align: center;
+    padding-top: 13px;
+    font-size: 14px;
+}
+.date_selected_vehicle .date_picker_collection{
+    width: 100%;
+    height: 41px;
+    padding: 0 18px 0 50px;
+    font-size: 14px;
+    line-height: 48px;
+    vertical-align: top;
+    text-transform: inherit;
+    border: 1px solid #ddd;
+    /* border-bottom: 3px solid #ddd; */
+    border-radius: 0;
+    background-color: #fff;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 0.2px!important;
+    color: #423c3c;
+    font-weight: 600;
+    margin-top: 7px;
+    border-radius: 4px;
+}
+.date_selected_vehicle .icon-new_collection {
+    font-size: 18px;
+    display: inline-block;
+    padding-top: 7.5%;
+    padding-left: 8%;
+    color: #808080d6;
+    position: absolute;
+    left: 0;
+    z-index: 3;
+}
+.search_collection_btn{
+    margin-top: 8px;
+}
+.header_filter_bus{
+    text-align: center;
+    padding-top: 3rem;
+    color: #615b5b;
+    font-size: large;
+}
+.row_sec {
+    border: 1px solid #ddd;
+    margin-top: 20px;
+    padding: 27px
+}
+.row_sec:hover{
+    box-shadow: 2px 2px 8px 1px #fdeaea;
+}
+.show_bus_collection_btn{
+    text-align: center;
+} 

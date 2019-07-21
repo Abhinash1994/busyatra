@@ -4,16 +4,24 @@ import DatePicker from "react-datepicker";
  
 import "react-datepicker/dist/react-datepicker.css";
 import Button from '@material-ui/core/Button';
-
+import { Link } from 'react-router-dom';
 
 
 class Home extends Component {
 	 constructor(props) {
     super(props);
     this.state = {
-      startDate: new Date()
+      startDate: new Date(),
+      arrival_from:'',
+      departure_to:'',
+      vehicle_select:'',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleArrival = this.handleArrival.bind(this);
+    this.handleDeparture = this.handleDeparture.bind(this);
+    this.handleVehicle = this.handleVehicle.bind(this);
+
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
  
   handleChange(date) {
@@ -22,7 +30,22 @@ class Home extends Component {
 
     });
   }
- 
+  handleArrival(e){
+  	this.setState({arrival_from:e.target.value});
+  }
+  handleDeparture(e){
+  	this.setState({departure_to:e.target.value});
+  }
+  handleVehicle(e){
+  	this.setState({vehicle_select:e.target.value});
+  }	
+  handleSubmit(e) {
+        e.preventDefault();
+        console.log(this.state.arrival_from);
+         console.log(this.state.departure_to);
+          console.log(this.state.vehicle_select);
+           console.log(this.state.startDate);
+  }
   render() {
 
     return (
@@ -34,24 +57,24 @@ class Home extends Component {
       						<div className="b-filter__inner bg-grey">
               					<h2>Book Your Tickets</h2>
               						
-					                  <select className="selectpicker_from">
-					                    <option>From *</option>
-					                    <option>Jaleshwar</option>
-					                    <option>Janakpur</option>
-					                    <option>Kathmandu</option>
+					                  <select className="selectpicker_from" value={this.state.arrival_from} onChange={this.handleArrival}>
+					                    <option value="1">From *</option>
+					                    <option value="2">Jaleshwar</option>
+					                    <option value="3">Janakpur</option>
+					                    <option value="4">Kathmandu</option>
 					                  </select>
 
-					                  <select className="selectpicker_to">
-					                    <option>To *</option>
-					                    <option>Jaleshwar</option>
-					                    <option>Janakpur</option>
-					                    <option>Kathmandu</option>
+					                  <select className="selectpicker_to" value={this.state.departure_to} onChange={this.handleDeparture}>
+					                    <option option="1">To *</option>
+					                    <option option="2">Jaleshwar</option>
+					                    <option option="3">Janakpur</option>
+					                    <option option="4">Kathmandu</option>
 					                  </select>	
-					                  <select className="selectpicker_to">
-					                    <option>Selected Bus/Micro *</option>
-					                    <option>Bus</option>
-					                    <option>Micro</option>
-					                    <option>Car</option>
+					                  <select className="selectpicker_to" value={this.state.vehicle_select} onChange={this.handleVehicle}>
+					                    <option option="1">Selected Bus/Micro *</option>
+					                    <option option="2">Bus</option>
+					                    <option option="3">Micro</option>
+					                    <option option="4">Car</option>
 					                  </select>
 					                  <div className="start_date_selected" style={{position:'absolute'}}>
 					                  		<i className="fa fa-calendar icon-calendar_icon-new" aria-hidden="true" ></i>
@@ -62,12 +85,13 @@ class Home extends Component {
 											    className="startdate_picker"
 											/>
 					                  </div>
-					                  <div className="search_bus_button">
-					                  	<Button variant="contained" color="secondary" >
-								        	Search Bus
-								      	</Button>
-					                  </div>
-					                 
+					                  <Link to="/search">	
+						                  <div className="search_bus_button">
+							                  	<Button variant="contained" color="secondary" onClick={this.handleSubmit}>
+										        	Search Bus
+										      	</Button>
+						                  </div>
+					                  </Link>
 
       						</div>
       					</Grid>
