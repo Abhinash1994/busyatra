@@ -417,11 +417,47 @@ position: relative;
 .row_sec {
     border: 1px solid #ddd;
     margin-top: 20px;
-    padding: 27px
+    padding: 27px;
+    padding-bottom: 5px;
 }
 .row_sec:hover{
     box-shadow: 2px 2px 8px 1px #fdeaea;
 }
-.show_bus_collection_btn{
+.row_sec .travels .title{
+    color: #3e3e52;
+    font-weight: bold;
+}
+.row_sec .travels .l-color {
+    color: #7e7e8c;
+    padding-top: 8px;
+    font-size: 13px;
+}
+.pick_up{
+    color: rgb(85, 77, 161);
+    cursor: pointer;
+    padding-top: 8px;
+    font-size: 13px;
+}
+.l-color{
+    color: #7e7e8c;
+    line-height: 24px;
+}
+.bp-time .arrival{
+    color: #3e3e52;
+}
+.starts_fare .starts_price{
+    color: #3e3e52;
+    font-size: 16px;
+}
+.starts_fare .fare_price{
+    padding-left: 15px;
+    font-weight: bold;
+}
+.seats_availbale{
     text-align: center;
+    font-weight: bold;
+}
+.show_bus_collection_btn{
+    float: right;
+    padding-top: 2rem;
 } 
