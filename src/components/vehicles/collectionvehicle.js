@@ -4,23 +4,32 @@ import TextField from '@material-ui/core/TextField';
 import DatePicker from "react-datepicker";
  import Button from '@material-ui/core/Button';
 import "react-datepicker/dist/react-datepicker.css";
+
+import Card from '@material-ui/core/Card';
+
 class Collectionvehicle extends Component {
 
 	 constructor(props) {
     super(props);
     this.state = {
       startDate: new Date(),
+      visible: false 
       
     };
     this.handleChange = this.handleChange.bind(this);
+    this.toggleMenu = this.toggleMenu.bind(this);
   }
- 
+ 	
   handleChange(date) {
     this.setState({
       startDate: date
 
     });
   }
+   toggleMenu() {
+        this.setState({visible: !this.state.visible})
+    }
+
   render() {
 
     return (
@@ -97,7 +106,7 @@ class Collectionvehicle extends Component {
 	      	  		
 
 
-	      	  		 <Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
+	      	  		 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{paddingBottom:'3rem'}}>
 	      	  		 	<Grid container className="row_sec">
 	      	  		 		<Grid item xs={4} sm={3} md={2} lg={4} xl={4}>
 	      	  		 			<div className="travels lh-24 f-bold d-color">
@@ -141,20 +150,129 @@ class Collectionvehicle extends Component {
 			      	  		 			</div>	
 			      	  		 			
 			      	  		 			<div className="show_bus_collection_btn">
-								      	  	<Button variant="contained" color="secondary">
+								      	  	<Button variant="contained" color="secondary" onClick={this.toggleMenu}>
 												View Seat
 											</Button>
 										</div>
 	      	  		 				</Grid>
 	      	  		 		 	</Grid>
 	      	  		 		 </Grid>
-	      	  		 	</Grid>
-		      	  		 	
+	      	  		 		 
+
+
+	      	  		 		 <Grid className="selection_seat_from_bus" items xs={12} sm={12} md={12} lg={12} xl={12} style={this.state.visible ? {display:'block'}:{display:'none'}}>
+	      	  		 		 	<Grid container>
+	      	  		 		 		<Grid item xs={7} sm={7} md={7} lg={7} xl={7}>
+	      	  		 		 			<Card className="seatchart">
+	      	  		 		 				<Grid container>
+	      	  		 		 					<Grid items xs={2} sm={2} md={2} lg={2} xl={2} style={{borderRight: '1px solid #e0e0e0'}}>
+	      	  		 		 						<div className="seat-wrap">
+	      	  		 		 							<img src="https://res.cloudinary.com/ddkyepakx/image/upload/v1563902752/abhi-operator.svg" alt="driver"/>
+	      	  		 		 					
+	      	  		 		 						</div>
+	      	  		 		 					</Grid>
+	      	  		 		 					<Grid items xs={10} sm={10} md={10} lg={10} xl={10}>
+	      	  		 		 							<table className="seat_style_for_table">
+															  <tbody>
+															    <tr>
+															      <td>
+															      	<h6 className="seat-management-info">
+															      		2
+															      	</h6>
+															      </td>
+															      <td>
+															      	<div className="seat-management-info">4</div>
+															      </td>
+															      <td><div className="seat-management-info">6</div></td>
+															      <td>
+															      	<div className="seat-management-info">8</div>
+															      </td>
+															      <td><div className="seat-management-info">10</div></td>
+															      
+															      <td><div className="seat-management-info">12</div>
+															      </td>
+															      
+															    </tr>
+															    <tr>
+															      <td>
+															      	<h6 className="seat-management-info">
+															      		1
+															      	</h6>
+															      </td>
+															      <td>
+															      	<div className="seat-management-info">3</div>
+															      </td>
+															      <td><div className="seat-management-info">5</div></td>
+															      <td>
+															      	<div className="seat-management-info">7</div>
+															      </td>
+															      <td><div className="seat-management-info">9</div></td>
+															      <td>
+															      	<div className="seat-management-info">11</div>
+															      </td>
+															      
+															      
+															    </tr>
+															  	</tbody>
+														</table>
+
+														<table className="seat_style_for_table">
+															  <tbody>
+															    <tr>
+															      <td></td>
+															      	
+															      <td>
+															      	<div className="seat-management-info">2</div>
+															      </td>
+															      <td><div className="seat-management-info">
+															      			4
+															      		</div>
+															      </td>
+															      <td>
+															      	<div className="seat-management-info">6</div>
+															      </td>
+															      <td><div className="seat-management-info">8</div></td>
+															      <td>
+															      	<div className="seat-management-info">10</div>
+															      </td>
+															      
+															    </tr>
+															    <tr>
+															      <td>
+															      	<h6 className="seat-management_null">
+															      		
+															      	</h6>
+															      </td>
+															      <td>
+															      	<div className="seat-management-info">1</div>
+															      </td>
+															      <td><div className="seat-management-info">3</div></td>
+															      <td>
+															      	<div className="seat-management-info">5</div>
+															      </td>
+															      <td><div className="seat-management-info">7</div></td>
+															      <td>
+															      	<div className="seat-management-info">9</div>
+															      </td>
+															      
+															    </tr>
+															  	</tbody>
+
+														</table>
+														
+	      	  		 		 					</Grid>
+	      	  		 		 				</Grid>	
+	      	  		 		 			</Card>
+	      	  		 		 		</Grid>
+	      	  		 		 		<Grid item xs={6} sm={6} md={6} lg={6} xl={6}></Grid>
+	      	  		 		 	</Grid>	
+	      	  		 		 </Grid>	
+
+
+
+	      	  		 		 
+	      	  		 	</Grid> 	
 	      	  		 </Grid>
-
-
-
-
 
 
 
@@ -162,8 +280,6 @@ class Collectionvehicle extends Component {
 
 	      	  		 
 	      	  	</div>
-
-
       	  </Grid>
      
     );

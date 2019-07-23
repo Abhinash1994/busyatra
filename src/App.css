@@ -421,7 +421,7 @@ position: relative;
     padding-bottom: 5px;
 }
 .row_sec:hover{
-    box-shadow: 2px 2px 8px 1px #fdeaea;
+    box-shadow: 2px 2px 8px 1px #dec1c1;
 }
 .row_sec .travels .title{
     color: #3e3e52;
@@ -460,4 +460,60 @@ position: relative;
 .show_bus_collection_btn{
     float: right;
     padding-top: 2rem;
+}
+.selection_seat_from_bus{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 1px solid black;
+    border-top: 1px solid #f3f3f3;
+    padding-top: 2rem;
 } 
+.seat-wrap {
+    padding-top: 1rem;
+    text-align: center;
+}
+.seat-management-info{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 30px;
+    margin: 5px;
+    padding-right: 5px;
+    border: 1px solid rgb(94, 119, 101);
+    background: rgb(255, 255, 255);
+    color: rgb(68, 68, 68);
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    font-size: 13px;
+}
+.seat-management_null{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33px;
+    height: 30px;
+    margin: 5px;
+    padding-right: 5px;
+    background: rgb(255, 255, 255);
+    color: rgb(68, 68, 68);
+    -moz-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+.seat_style_for_table{
+    margin:1rem;
+}
+.line_inside_seat{
+    position: absolute;
+    right: 0px;
+    top: 3px;
+    bottom: 3px;
+    left: initial;
+    width: 5px;
+    height: initial;
+    background: rgb(30, 178, 75);
+}
+
