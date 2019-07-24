@@ -518,6 +518,23 @@ iPad 3
     .vehicle_from_text{
         display: none;
     }
+    .bp_total_price{
+        text-align: center;
+    }
+    .proceed_pay_btn{
+        text-align: center;
+    }
+    .newsletter-wrap h5 {
+    font-size: 19px !important;
+    }
+    .newsletter-wrap h4{
+        font-size: 22px !important;
+    }
+    .pay_now_popup{
+        width: 307px;
+        margin-left: 1.5rem;
+    }
 }
+
 
 

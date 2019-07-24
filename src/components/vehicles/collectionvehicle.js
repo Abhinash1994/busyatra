@@ -6,6 +6,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 import Card from '@material-ui/core/Card';
+import Detailspassanger from '../vehicles/detailspassanger'
 
 class Collectionvehicle extends Component {
 
@@ -18,6 +19,7 @@ class Collectionvehicle extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
+
   }
  	
   handleChange(date) {
@@ -27,8 +29,15 @@ class Collectionvehicle extends Component {
     });
   }
    toggleMenu() {
-        this.setState({visible: !this.state.visible})
+        this.setState({visible: !this.state.visible});
+        window.scroll({
+		  top: 200,
+		  left: 100,
+		  behavior: 'smooth'
+		});
     }
+
+  
 
   render() {
 
@@ -161,8 +170,8 @@ class Collectionvehicle extends Component {
 
 
 	      	  		 		 <Grid className="selection_seat_from_bus" items xs={12} sm={12} md={12} lg={12} xl={12} style={this.state.visible ? {display:'block'}:{display:'none'}}>
-	      	  		 		 	<Grid container>
-	      	  		 		 		<Grid item xs={7} sm={7} md={7} lg={7} xl={7}>
+	      	  		 		 	<Grid container spacing={3}>
+	      	  		 		 		<Grid item xs={8} sm={8} md={8} lg={8} xl={8}>
 	      	  		 		 			<Card className="seatchart">
 	      	  		 		 				<Grid container>
 	      	  		 		 					<Grid items xs={2} sm={2} md={2} lg={2} xl={2} style={{borderRight: '1px solid #e0e0e0'}}>
@@ -171,44 +180,44 @@ class Collectionvehicle extends Component {
 	      	  		 		 					
 	      	  		 		 						</div>
 	      	  		 		 					</Grid>
-	      	  		 		 					<Grid items xs={10} sm={10} md={10} lg={10} xl={10}>
-	      	  		 		 							<table className="seat_style_for_table">
+	      	  		 		 					<Grid className="seat_style_for_table" items xs={7} sm={7} md={7} lg={7} xl={7}>
+	      	  		 		 							<table >
 															  <tbody>
 															    <tr>
 															      <td>
 															      	<h6 className="seat-management-info">
-															      		2
+															      		B2
 															      	</h6>
 															      </td>
 															      <td>
-															      	<div className="seat-management-info">4</div>
+															      	<div className="seat-management-info">B4</div>
 															      </td>
-															      <td><div className="seat-management-info">6</div></td>
+															      <td><div className="seat-management-info">B6</div></td>
 															      <td>
-															      	<div className="seat-management-info">8</div>
+															      	<div className="seat-management-info">B8</div>
 															      </td>
-															      <td><div className="seat-management-info">10</div></td>
+															      <td><div className="seat-management-info">B10</div></td>
 															      
-															      <td><div className="seat-management-info">12</div>
+															      <td><div className="seat-management-info">B12</div>
 															      </td>
 															      
 															    </tr>
 															    <tr>
 															      <td>
 															      	<h6 className="seat-management-info">
-															      		1
+															      		B1
 															      	</h6>
 															      </td>
 															      <td>
-															      	<div className="seat-management-info">3</div>
+															      	<div className="seat-management-info">B3</div>
 															      </td>
-															      <td><div className="seat-management-info">5</div></td>
+															      <td><div className="seat-management-info">B5</div></td>
 															      <td>
-															      	<div className="seat-management-info">7</div>
+															      	<div className="seat-management-info">B7</div>
 															      </td>
-															      <td><div className="seat-management-info">9</div></td>
+															      <td><div className="seat-management-info">B9</div></td>
 															      <td>
-															      	<div className="seat-management-info">11</div>
+															      	<div className="seat-management-info">B11</div>
 															      </td>
 															      
 															      
@@ -222,18 +231,18 @@ class Collectionvehicle extends Component {
 															      <td></td>
 															      	
 															      <td>
-															      	<div className="seat-management-info">2</div>
+															      	<div className="seat-management-info">A2</div>
 															      </td>
 															      <td><div className="seat-management-info">
-															      			4
+															      			B4
 															      		</div>
 															      </td>
 															      <td>
-															      	<div className="seat-management-info">6</div>
+															      	<div className="seat-management-info">A6</div>
 															      </td>
-															      <td><div className="seat-management-info">8</div></td>
+															      <td><div className="seat-management-info">A8</div></td>
 															      <td>
-															      	<div className="seat-management-info">10</div>
+															      	<div className="seat-management-info">A10</div>
 															      </td>
 															      
 															    </tr>
@@ -244,15 +253,15 @@ class Collectionvehicle extends Component {
 															      	</h6>
 															      </td>
 															      <td>
-															      	<div className="seat-management-info">1</div>
+															      	<div className="seat-management-info">A1</div>
 															      </td>
-															      <td><div className="seat-management-info">3</div></td>
+															      <td><div className="seat-management-info">A3</div></td>
 															      <td>
-															      	<div className="seat-management-info">5</div>
+															      	<div className="seat-management-info">A5</div>
 															      </td>
-															      <td><div className="seat-management-info">7</div></td>
+															      <td><div className="seat-management-info">A7</div></td>
 															      <td>
-															      	<div className="seat-management-info">9</div>
+															      	<div className="seat-management-info">A9</div>
 															      </td>
 															      
 															    </tr>
@@ -261,12 +270,45 @@ class Collectionvehicle extends Component {
 														</table>
 														
 	      	  		 		 					</Grid>
+	      	  		 		 					<Grid items xs={3} sm={3} md={3} lg={3} xl={3} style={{borderLeft: '1px solid #e0e0e0'}}>
+	      	  		 		 						<div className="seat-wrap_availablity">
+	      	  		 		 							<h6> Check Seat </h6>
+	      	  		 		 							<ul>
+	      	  		 		 								<li>
+	      	  		 		 									<span className="available"></span>
+	      	  		 		 								</li>
+	      	  		 		 								<li>Available</li>
+	      	  		 		 							</ul>
+	      	  		 		 							<ul>
+	      	  		 		 								<li>
+	      	  		 		 									<span className="unavailable"></span>
+	      	  		 		 								</li>
+	      	  		 		 								<li>Unavailable</li>
+	      	  		 		 							</ul>
+	      	  		 		 						</div>
+	      	  		 		 					</Grid>
 	      	  		 		 				</Grid>	
 	      	  		 		 			</Card>
 	      	  		 		 		</Grid>
-	      	  		 		 		<Grid item xs={6} sm={6} md={6} lg={6} xl={6}></Grid>
+	      	  		 		 		<Grid item xs={4} sm={4} md={4} lg={4} xl={4}>
+	      	  		 		 			<Card className="payment_bus_detail_info">
+	      	  		 		 					<h5 className="title">Details Your Ticket</h5>
+	      	  		 		 					<div className="inner_details">
+	      	  		 		 						<h6>Boarding point : Janakpur</h6>
+	      	  		 		 						<h6>Dropping point : Kathmandu</h6>
+	      	  		 		 					</div>
+	      	  		 		 					<div className="detail_amount">
+	      	  		 		 						<h6>Seat(s) : B-24</h6>
+	      	  		 		 						<h6>Amount : &#x20B9;1000</h6>
+	      	  		 		 					</div>
+	      	  		 		 					
+	      	  		 		 					<Detailspassanger />
+
+	      	  		 		 			</Card>
+	      	  		 		 		</Grid>
 	      	  		 		 	</Grid>	
 	      	  		 		 </Grid>	
+
 
 
 

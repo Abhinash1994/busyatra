@@ -4,6 +4,7 @@ import Home from '../header/home';
 import Busticket from '../header/busticket';
 import Collectionvehicle from '../vehicles/collectionvehicle'
 
+
 export default class Main extends Component {
   render() { 
     return (
@@ -11,7 +12,7 @@ export default class Main extends Component {
 		    <Switch>
               <Route exact path='/' component={Home}/>
               <Route exact path='/bus-ticket' component={Busticket}/>
-               <Route exact path='/search' component={Collectionvehicle}/>
+              <Route exact path='/search' component={Collectionvehicle}/>
 		    </Switch>
   		</main>
     );

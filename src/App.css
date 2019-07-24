@@ -3,6 +3,7 @@ position: relative;
   text-align: center;
   color: white;
 }
+
 .banner_img_info{
 	background-image: url("https://res.cloudinary.com/ddkyepakx/image/upload/v1563264356/banner.jpg");
     width: 100%;
@@ -27,7 +28,9 @@ position: relative;
     margin-bottom: 20px;
     color:black;
 }
-
+a{
+    text-decoration: none !important;
+}
 .selectpicker_to{
     margin-bottom: 10px;
 	margin-top: 15px;
@@ -468,6 +471,9 @@ position: relative;
     border-top: 1px solid #f3f3f3;
     padding-top: 2rem;
 } 
+.seatchart{
+    background-image: linear-gradient(to right top, #dcf2f3, #f9ffff, #f9f9f9, #e1def9, #f7b9f1);
+}
 .seat-wrap {
     padding-top: 1rem;
     text-align: center;
@@ -497,14 +503,13 @@ position: relative;
     height: 30px;
     margin: 5px;
     padding-right: 5px;
-    background: rgb(255, 255, 255);
-    color: rgb(68, 68, 68);
     -moz-user-select: none;
     user-select: none;
     cursor: pointer;
 }
 .seat_style_for_table{
-    margin:1rem;
+    text-align: -webkit-center;
+    padding: 1rem;
 }
 .line_inside_seat{
     position: absolute;
@@ -516,4 +521,131 @@ position: relative;
     height: initial;
     background: rgb(30, 178, 75);
 }
+.seat-wrap_availablity ul{
+    padding-inline-start: 7px;
+    padding-top: 1rem;
+        margin-bottom: -2px;
+}
+.seat-wrap_availablity ul li{
+    list-style: none;
+    display: inline-flex;
+    padding-left: 10px;
+    font-size: 17px;
+}
+.seat-wrap_availablity h6{
+    text-align: center;
+    padding-top: 1.5rem;
+    font-weight: bold;
+    margin-bottom: -1px;
+}
+.seat-wrap_availablity .available{
+    border:1px solid black;
+    background:#fff;
+    width: 20px;
+    height: 20px;
+}
+.seat-wrap_availablity .unavailable{
+    border:1px solid black;
+    background-color: #cbcbcb;
+    width: 20px;
+    height: 20px;
 
+}
+.payment_bus_detail_info{
+     background-image: linear-gradient(to right top, #ecf2f3, #ffffff, #ffffff, #ffffff, #fdf0ff);
+}
+.payment_bus_detail_info .title{
+    text-align: center;
+    font-weight: bold;
+    padding-top: 1rem;
+}
+.payment_bus_detail_info .inner_details{
+    padding: 6px;
+    padding-left: 2rem;
+    color: #7b7b7b;
+}
+.payment_bus_detail_info .detail_amount{
+    padding: 6px;
+    padding-left: 2rem;
+    color: #040404;
+    font-weight: 900;
+}
+.payment_bus_detail_info .proceed_book{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.payment_bus_detail_info .detail_amount h6{
+    font-size: 16px;
+    font-weight: 600;
+    color: #3e3e52;
+}
+.bus_passanger_detail{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.bus_passanger_detail .passenger-maintitle {
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 23px;
+
+}
+.bp_total_price{
+    font-weight: bold;
+    padding-top: 8px;
+}
+.bus_passanger_detail .passenger_info_title{
+   display: flex;
+   padding-left: 2rem;
+}
+.bus_passanger_detail .passenger_info_title .inner_title{
+       padding-left: 1rem;
+    padding-top: 2px;
+        font-weight: bold;
+    font-size: medium;
+}
+.bus_passanger_detail .fa-user-circle-o {
+    color: #6ec7b4;
+    font-size: xx-large;
+}
+.passenger_info_content_block {
+    box-shadow: 0 0 4px 0 hsla(0,0%,64%,.5);
+    padding: 10px 1rem 1rem;
+    background: #fff;
+    margin-bottom: 1.5em;
+    margin-top: 1em;
+    margin-left: 2rem;
+    width: 86%;
+}
+.passenger_priority {
+    margin-right: .5em;
+    padding-right: .5em;
+    font-size: 14px;
+    color: #7d7d7d;
+}
+.passenger_seat {
+    border-left: 1px solid #b2b2b259;
+    padding-left: .8em;
+    font-weight: bold;
+    font-size: 14px;
+}
+.name_passanger{
+    font-size: 14px;
+    padding-top: 1rem;
+    margin-bottom: 0rem;
+}
+.input_box {
+    width: 100%;
+    background: #fff;
+    line-height: 1.2em;
+    -webkit-transition: all .3s;
+    padding: .5em;
+    border-radius: 3px;
+    border: 1px solid #bababa;
+    outline: none;
+    font-size: 14px;
+    margin: .8em 0 0;
+    color: rgba(74,74,74,.86)!important;
+}
