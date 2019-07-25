@@ -4,7 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
 
-
+import { Link } from 'react-router-dom';
 
 export default function Detailspassanger() {
   const [open, setOpen] = React.useState(false);
@@ -36,7 +36,7 @@ export default function Detailspassanger() {
       	<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
       			<Grid container justify="center">
 			      	
-			      		<Grid className="bus_passanger_detail" item xs={12} sm={12} md={8} lg={5} xl={5}>
+			      		<Grid className="bus_passanger_detail" item xs={12} sm={8} md={6} lg={5} xl={5}>
 			      			<Card>
 			      				<h2 className="passenger-maintitle">Passanger Details</h2>
 			      				
@@ -55,13 +55,15 @@ export default function Detailspassanger() {
 			      					<input className="input_box" type="number" placeholder="phone"  maxlength="300" id="seatno-04"  autocomplete="off"/>
 
 			      					<Grid container style={{padding:'1rem'}}>
-			      						<Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
+			      						<Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
 			      							<h5 className="bp_total_price">Total: &#8377;1000</h5>
 			      						</Grid>
-			      						<Grid className="proceed_pay_btn" item xs={12} sm={12} md={6} lg={6} xl={6}>
-			      							<Button variant="contained" color="secondary">
-												proceed to Pay
-											</Button>
+			      						<Grid className="proceed_pay_btn" item xs={12} sm={6} md={6} lg={6} xl={6}>
+			      							<Link to="/details-payment">
+			      								<Button variant="contained" color="secondary">
+													proceed to Pay
+												</Button>
+			      							</Link>
 			      						</Grid>
 			      					</Grid>	
 			      				</div>

@@ -3,7 +3,8 @@ import { Switch, Route } from 'react-router-dom';
 import Home from '../header/home';
 import Busticket from '../header/busticket';
 import Collectionvehicle from '../vehicles/collectionvehicle'
-
+import CartPayment from '../vehicles/cartpayment';
+import MessageShow from '../vehicles/messageshow';
 
 export default class Main extends Component {
   render() { 
@@ -13,6 +14,8 @@ export default class Main extends Component {
               <Route exact path='/' component={Home}/>
               <Route exact path='/bus-ticket' component={Busticket}/>
               <Route exact path='/search' component={Collectionvehicle}/>
+              <Route exact path='/details-payment' component={CartPayment}/>
+               <Route exact path='/successfull' component={MessageShow}/>
 		    </Switch>
   		</main>
     );

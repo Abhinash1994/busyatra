@@ -109,7 +109,7 @@ class Collectionvehicle extends Component {
 	      	  	<div className="container">
 	      	  		<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
 	      	  			<div className="header_filter_bus">
-	      	  				<p>You may select other nearby routes where we have bus services</p>
+	      	  				<p>You may select any vehicles where we have bus services routes</p>
 	      	  			</div>
 	      	  		</Grid>
 	      	  		
@@ -117,14 +117,14 @@ class Collectionvehicle extends Component {
 
 	      	  		 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{paddingBottom:'3rem'}}>
 	      	  		 	<Grid container className="row_sec">
-	      	  		 		<Grid item xs={4} sm={3} md={2} lg={4} xl={4}>
+	      	  		 		<Grid item xs={4} sm={2} md={2} lg={4} xl={4}>
 	      	  		 			<div className="travels lh-24 f-bold d-color">
 	      	  		 				<h6 className="title"> Ashok travels mandsaur group</h6>
 	      	  		 				<h6 className="l-color"> A/C Seater / Sleeper (2+1)</h6>
 	      	  		 			</div>
 	      	  		 			
 	      	  		 		</Grid>
-	      	  		 		 <Grid item xs={8} sm={9} md={10} lg={8} xl={8}>
+	      	  		 		 <Grid item xs={8} sm={10} md={10} lg={8} xl={8}>
 	      	  		 		 	<Grid container>
 	      	  		 		 		<Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
 			      	  		 			<div className="travels lh-24 f-bold d-color">
@@ -174,13 +174,14 @@ class Collectionvehicle extends Component {
 	      	  		 		 		<Grid item xs={8} sm={8} md={8} lg={8} xl={8}>
 	      	  		 		 			<Card className="seatchart">
 	      	  		 		 				<Grid container>
-	      	  		 		 					<Grid items xs={2} sm={2} md={2} lg={2} xl={2} style={{borderRight: '1px solid #e0e0e0'}}>
+	      	  		 		 					<Grid className="main_cart_seat_available" items xs={1} sm={1} md={1} lg={1} xl={1} >
 	      	  		 		 						<div className="seat-wrap">
-	      	  		 		 							<img src="https://res.cloudinary.com/ddkyepakx/image/upload/v1563902752/abhi-operator.svg" alt="driver"/>
+	      	  		 		 							<img src="https://res.cloudinary.com/ddkyepakx/image/upload/v1563902752/abhi-operator.svg" alt="abhi-operator"/>
 	      	  		 		 					
 	      	  		 		 						</div>
 	      	  		 		 					</Grid>
 	      	  		 		 					<Grid className="seat_style_for_table" items xs={7} sm={7} md={7} lg={7} xl={7}>
+	      	  		 		 							<h6 className="select_seat_block"> Select Seat</h6>
 	      	  		 		 							<table >
 															  <tbody>
 															    <tr>
@@ -270,7 +271,7 @@ class Collectionvehicle extends Component {
 														</table>
 														
 	      	  		 		 					</Grid>
-	      	  		 		 					<Grid items xs={3} sm={3} md={3} lg={3} xl={3} style={{borderLeft: '1px solid #e0e0e0'}}>
+	      	  		 		 					<Grid items xs={4} sm={4} md={4} lg={4} xl={4} style={{borderLeft: '1px solid #e0e0e0'}}>
 	      	  		 		 						<div className="seat-wrap_availablity">
 	      	  		 		 							<h6> Check Seat </h6>
 	      	  		 		 							<ul>

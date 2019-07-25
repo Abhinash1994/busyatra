@@ -18,7 +18,7 @@ class HeaderNav extends Component {
 			                  				</div>
 			  						</Grid>
 			  						<Grid className="call-us" item xs={12} sm={6} md={6} lg={6} xl={6}>
-			  								Call Now : <i className="fa fa-phone"></i> +977 9800879857
+			  								Helpline :  <i className="fa fa-phone"> +977 9800879857</i> 
 			  						</Grid>
 			  					
 			  				</Grid>

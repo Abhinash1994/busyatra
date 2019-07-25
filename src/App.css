@@ -592,6 +592,38 @@ a{
     font-size: 23px;
 
 }
+.bus_passanger_detail .select_payment_details{
+    text-align: center;
+    padding-top: 1rem;
+}
+.bus_passanger_detail .select_payment_details .payment-maintitle{
+    font-weight: bold;
+    font-size: 26px;
+}
+.passenger_info_content_block .booked_details h6{
+    font-weight: bold;
+    font-size: 16px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+.booked_details-right h5{
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px;
+    padding-bottom: 0px;
+}
+.collection_submit_cancel_btn{
+    padding-top: 1rem;
+}
+.select_seat_block{
+    text-align: center;
+    padding-top: .5rem;
+    font-weight: bold;
+}
+.main_cart_seat_available{
+    border-right: 1px solid rgb(224, 224, 224);
+    border-left: 5px solid #e45050;
+}
 .bp_total_price{
     font-weight: bold;
     padding-top: 8px;
@@ -648,4 +680,51 @@ a{
     font-size: 14px;
     margin: .8em 0 0;
     color: rgba(74,74,74,.86)!important;
+}
+.message_successful{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.message_successful .icon_ok{
+    background: #107510;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 2rem;
+}
+.abhi_main_message{
+    padding-top: 1rem;
+}
+.message_successful .icon_ok span{
+    font-size: 125px;
+}
+.message_successful .icon_ok .booked{
+    font-size: larger;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+.booking_details{
+    text-align: right;
+    padding-right: 2rem;
+}
+.booking_details h5{
+    font-weight: bold;
+}
+.booking_details_right h5{
+    font-weight: bold;
+}
+.print_tickt_for_query{
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.print_tickt_for_query Button{
+    color:black;
+    font-weight: 700;
+    border:1px solid green;
+}
+.print_tickt_for_query Button:hover{
+    color:#ffffff;
+    background-color: green;
+    border:none;
 }
