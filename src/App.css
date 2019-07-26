@@ -288,20 +288,18 @@ a{
     width: 65%;
     display: inline;
     color: #a7a7a7;
-    line-height: 20px;
+    line-height: 15px;
     background-color: #FFFFFF;
     border: 1px solid #e9e7e7;
     padding-left: 20px;
     font-size: 14px;
     font-family: 'Open Sans', sans-serif;
     margin-right: 0px;
-    padding: 18px 20px;
-    width: 425px;
+    padding: 12px 20px;
 }
 .newsletter-wrap button.subscribe {
     filter: none;
     overflow: hidden;
-    padding: 14px 28px 14px 24px;
     cursor: pointer;
     font-weight: 500;
     border: none;
@@ -727,4 +725,132 @@ a{
     color:#ffffff;
     background-color: green;
     border:none;
+}
+.header_going_to_mobile{
+    background: #f9f9f9;
+    padding: 14px;
+}
+.header_going_to_mobile .address_info{
+       float: left;
+    display: flex;
+}
+.header_going_to_mobile .address_info h4{
+    font-size: 17px;
+    padding-left: 1rem;
+    font-weight: bold;
+    padding-top: 4px;
+}
+.header_going_to_mobile .modify_info{
+    float: right;
+}
+.abhi_bus_info_mobile{
+     background-image: linear-gradient(to right top, #e2ecec, #f9ffff, #ffffff, #ffffff, #ffffff);
+  margin: 1rem;
+  border-left: 4px solid #ff4242;
+}
+.abhi_bus_info_mobile .left_side_details{
+    display: flex;
+    padding: 10px;
+}
+.abhi_bus_icon_mobile{
+    color: blue;
+    font-size: 16px;
+}
+.abhi_bus_info_mobile .left_side_details h6{
+    font-weight: bold;
+    padding-left: .5rem;
+}
+.abhi_bus_info_mobile .right_side_details{
+    text-align: -webkit-right;
+    padding: .6rem;
+}
+.abhi_bus_info_mobile .right_side_details .price-mobile{
+    font-weight: bold;
+    color: #2f8443;
+
+}
+.abhi_bus_info_mobile .right_side_details .seat-available{
+    font-size: 13px;
+}
+.abhi_bus_info_mobile .rating_mobile{
+    background: #65960f;
+    width: 51px;
+    padding: 2px;
+    color: #ffff; 
+    border-radius: 4px;
+}
+.abhi_bus_info_mobile .rating_mobile span{
+    padding-right: 6px;
+    font-size: 12px;
+    font-weight: bold; 
+}
+.abhi_bus_info_mobile .name{
+        margin-top: -15px;
+    padding-left: 2rem;
+    font-size: 13px;
+}
+.abhi_bus_info_mobile .facility{
+     padding-left: 2rem;
+    font-size: 12px;
+}
+.main_seat_manage_mobile{
+    border-top: 1px solid #00000033;
+    padding-top: 9px;
+}
+.main_seat_manage_mobile .inner_container{
+     border: 1px solid #d6cdcd;
+    margin-bottom: 1rem;
+}
+.main_seat_manage_mobile .title{
+    text-align: center;
+    font-weight: bold;
+}
+.inner_container .pa_info{
+        border-bottom: 1px solid #d2cdcd;
+    padding-bottom: 0.5rem;
+}
+.main_seat_manage_mobile .inner_container img{
+    float: right;
+    padding-right: 1.5rem;
+    padding-top: 10x;
+    padding-top: 9px;
+}
+.main_seat_manage_mobile .A_side{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .5rem;
+    border-right: 1px solid #d6cdcd;
+    text-align: center;
+}
+.main_seat_manage_mobile .B_side .b_name{
+  padding-right: 1rem;
+}
+.main_seat_manage_mobile .B_side{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: .5rem;
+    text-align: right;
+}
+.main_seat_manage_mobile .A_side .seat-select-info{
+    border: 1px solid #989292;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+.main_seat_manage_mobile .B_side .seat-select-info{
+    border: 1px solid #989292;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+.abhi_selecting_seats_info{
+    text-align: center;
+    padding-bottom: 1rem;
+}
+.abhi_selecting_seats_info h5{
+    font-size: 16px;
+    font-weight: 600;
+    color: #3e3e52;
 }

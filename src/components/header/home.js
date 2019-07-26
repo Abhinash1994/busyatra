@@ -122,7 +122,7 @@ class Home extends Component {
 				                  <i className="fa fa-mobile text-primary_mobile" aria-hidden="true"></i>
 				              </div>
 				              <h3 className="h5">Book with confidence</h3>
-				              <p className="text-muted">Obsuletely you have right to think all these things.but my friend please dont get confuse beacuse it is a legal site .so,please book your ticket with confident,im very sure you will definetely enjoy your journey..You are always welcome on this site,so book ticket with confidence and enjoy your journey.Thank you for visiting our site.</p>
+				              <p className="text-muted">Yes, Don't be afraid from Booking . cause  this is a legal website, which are provided lot's of ticket . so many customer are satisfied from our services so please go ahead through this site , & book tickets & enjoy you journey . hope you you will again visit our site .</p>
 				            </div>
 				          </div>
 				          <div className="col-lg-4 mb-3 mb-lg-0 text-center">
@@ -131,7 +131,7 @@ class Home extends Component {
 				                <i className="fa fa-heart-o text-primary_icon"></i>
 				              </div>
 				              <h3 className="h5">Enjoy your Journey</h3>
-				              <p className="text-muted">His room, a proper human room although a little too small, lay peacefully between its four familiar </p>
+				              <p className="text-muted">Hope you will absolutely enjoy your journey ,please visit this site again and again and have a joyful journey, you are always welcome here.</p>
 				            </div>
 				          </div>
 				        </div>

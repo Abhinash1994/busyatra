@@ -14,7 +14,8 @@ class Collectionvehicle extends Component {
     super(props);
     this.state = {
       startDate: new Date(),
-      visible: false 
+      visible: false ,
+      width: window.innerWidth
       
     };
     this.handleChange = this.handleChange.bind(this);
@@ -37,10 +38,187 @@ class Collectionvehicle extends Component {
 		});
     }
 
-  
+  componentWillMount() {
+  		window.addEventListener('resize', this.handleWindowSizeChange);
+	}
+
+// make sure to remove the listener
+// when the component is not mounted anymore
+	componentWillUnmount() {
+  		window.removeEventListener('resize', this.handleWindowSizeChange);
+	}
+
+	handleWindowSizeChange = () => {
+		this.setState({ width: window.innerWidth });
+	};
 
   render() {
+  		const { width } = this.state;
+  		const isMobile = width <= 800;
 
+  		 if (isMobile) {
+    return (
+      	
+      	<Grid container>
+      		<Grid className="header_going_to_mobile" item xs={12} sm={12}>
+      			<div className="address_info">
+      				<i class="fa fa-arrow-left" style={{fontSize:'24px'}}></i>
+      				<h4>Kathmandu to Janakpur</h4>
+
+      			</div>
+      			<div className="modify_info">
+      				<Button variant="outlined" color="inherit">
+						Modify
+					</Button>
+      			</div>
+      		</Grid>
+    
+      			
+      			<Grid item xs={12} sm={12}>
+      				<Card className="abhi_bus_info_mobile" onClick={this.toggleMenu}>
+      					<Grid container>
+      						<Grid item xs={8} sm={8}>
+      							<div className="left_side_details">
+      								<i className="fa fa-bus abhi_bus_icon_mobile"></i>
+      								<h6>20:30 - 01:30</h6><br/>
+      							</div>
+      							<h6 className="name"> Dhanusha Delux</h6>
+      							<h6 className="facility"> LCD,Music,air suspension </h6>
+      						</Grid>
+      						<Grid item xs={4} sm={4}>
+      							<div className="right_side_details">
+      								<h6 className="price-mobile">from &#8377;1000</h6>
+      								<h6 className="seat-available">20 Seats</h6>
+      								<h6 className="rating_mobile"><span>3.4 / 5</span></h6>
+      							</div>
+      							
+      						</Grid>
+      					</Grid>
+
+
+      						<div className="container">
+      							<Grid className="main_seat_manage_mobile" item xs={12} sm={12} style={this.state.visible ? {display:'block'}:{display:'none'}}>
+      								<h6 className="title"> Seats selected </h6>
+      								 <Grid container className="inner_container">
+      								 	<Grid className="pa_info" item xs={12} sm={12}>
+      								 		<img src="https://res.cloudinary.com/ddkyepakx/image/upload/v1563902752/abhi-operator.svg" alt="abhi-operator"/>
+      								 	</Grid>
+      								 	<Grid className="A_side" item xs={6} sm={6}>
+      								 		<h5 className="a_name"> A</h5>
+      								 		
+      								 		<Grid container spacing={2} style={{paddingTop:'3rem'}}>
+      								 			<Grid item xs={6} sm={6}>
+      								 				<div className="seat-select-info">
+      								 					A1
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					A3
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					A5
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					A7
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					A9
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					A11
+      								 				</div>
+      								 			</Grid>
+      								 			<Grid item xs={6} sm={6}>
+      								 				<div className="seat-select-info">
+      								 					A2
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					A4
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					A6
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					A8
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					A10
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					A12
+      								 				</div>
+      								 			</Grid>
+      								 		</Grid>
+      								 			
+      								 	</Grid>
+      								 	<Grid className="B_side" item xs={6} sm={6}>
+      								 		<h5 className="b_name"> B</h5>
+      								 		
+      								 		<Grid container spacing={2} style={{paddingTop:'5px'}}>
+      								 			<Grid item xs={6} sm={6}>
+      								 				<div className="seat-select-info">
+      								 					B1
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					B3
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					B5
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					B7
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					B9
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					B11
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					B13
+      								 				</div>
+      								 			</Grid>
+      								 			<Grid item xs={6} sm={6}>
+      								 				<div className="seat-select-info">
+      								 					B2
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					B4
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					B6
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					B8
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					B10
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					B12
+      								 				</div>
+      								 				<div className="seat-select-info">
+      								 					B14
+      								 				</div>
+      								 			</Grid>
+      								 		</Grid>
+      								 	</Grid>
+      								 </Grid>
+      								 <div className="abhi_selecting_seats_info">
+      								 	 		<h5> Seat(s) : B5</h5>
+      								 	 		<h5> Total  : Rs.1000</h5>
+      								 	 		<Detailspassanger />
+      								 </div>	
+
+      							</Grid>
+      						</div>
+
+
+      				</Card>
+      			</Grid>
+      			
+      	</Grid>	
+    );
+  } else {
     return (
       
       	  <Grid className="total_vehicle_search" item xs={12} sm={12} md={12}  lg={12}	xl={12}>
@@ -328,5 +506,8 @@ class Collectionvehicle extends Component {
     );
   }
 }
+    
+  }
+
 
 export default Collectionvehicle;

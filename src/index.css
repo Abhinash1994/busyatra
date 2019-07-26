@@ -525,10 +525,13 @@ iPad 3
         text-align: center;
     }
     .newsletter-wrap h5 {
-    font-size: 19px !important;
+    font-size: 14px !important;
+    }
+    .newsletter-row {
+        padding: 29px 0px;
     }
     .newsletter-wrap h4{
-        font-size: 22px !important;
+        font-size: 16px !important;
     }
     .pay_now_popup{
         width: 307px;
@@ -536,6 +539,29 @@ iPad 3
     }
     .message_successful {
     padding-top: 0rem !important;
+    }
+    .passenger_info_content_block .booked_details h6 {
+       
+        font-size: 11px !important;
+   
+    }
+    .bus_passanger_detail .select_payment_details .payment-maintitle {
+        font-weight: bold;
+        font-size: 23px !important;
+    }
+    .booked_details-right h5 {
+        font-weight: bold;
+        font-size: 11px !important;
+        padding-top: .6rem !important;
+        padding-bottom: 0px;
+    }
+    .booking_details h5 {
+        font-weight: bold;
+        font-size: 16px !important;
+    }
+    .booking_details_right h5 {
+        font-weight: bold;
+        font-size: 16px;
     }
 }
 
