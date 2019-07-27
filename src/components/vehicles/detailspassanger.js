@@ -1,5 +1,4 @@
 import React from 'react';
-import Modal from '@material-ui/core/Modal';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
@@ -7,31 +6,10 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
 export default function Detailspassanger() {
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   return (
     <div>
-
-    	<div className="proceed_book">
-		      	 <Button variant="contained" color="secondary" onClick={handleOpen}>
-					proceed to book
-				</Button>
-			</div>
-      <Modal
-        aria-labelledby="simple-modal-title"
-        aria-describedby="simple-modal-description"
-        open={open}
-        onClose={handleClose}
-        className="pay_now_popup"
-      >
+    
         
       	<Grid item xs={12} sm={12} md={12} lg={12} xl={12}>
       			<Grid container justify="center">
@@ -74,7 +52,7 @@ export default function Detailspassanger() {
       		</Grid>
 
 
-      </Modal>
+    
     </div>
   );
 }

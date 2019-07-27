@@ -285,7 +285,7 @@ a{
 }
 #container_form_news2 input[type="text"] {
     background: #FFFFFF;
-    width: 65%;
+    width: 37%;
     display: inline;
     color: #a7a7a7;
     line-height: 15px;
@@ -408,6 +408,7 @@ a{
 }
 .search_collection_btn{
     margin-top: 8px;
+    text-align: center;
 }
 .header_filter_bus{
     text-align: center;
@@ -427,16 +428,21 @@ a{
 .row_sec .travels .title{
     color: #3e3e52;
     font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .row_sec .travels .l-color {
     color: #7e7e8c;
-    padding-top: 8px;
     font-size: 13px;
+}
+.lh-24 .bus_number{
+    color: #7e7e8c;
+    font-size: 14px;
 }
 .pick_up{
     color: rgb(85, 77, 161);
     cursor: pointer;
-    padding-top: 8px;
     font-size: 13px;
 }
 .l-color{
@@ -459,13 +465,11 @@ a{
     font-weight: bold;
 }
 .show_bus_collection_btn{
-    float: right;
-    padding-top: 2rem;
+    padding-top: .5rem;
 }
 .selection_seat_from_bus{
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    margin-top: 1px solid black;
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
     border-top: 1px solid #f3f3f3;
     padding-top: 2rem;
 } 
@@ -477,6 +481,7 @@ a{
     text-align: center;
 }
 .seat-management-info{
+    border-radius: 5px;
         display: flex;
     justify-content: center;
     align-items: center;
@@ -853,4 +858,14 @@ a{
     font-size: 16px;
     font-weight: 600;
     color: #3e3e52;
+}
+.rating_desktop h6{
+    background: #65960f;
+    width: 51px;
+    padding: 2px;
+    color: #ffff;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 2.2rem;
 }

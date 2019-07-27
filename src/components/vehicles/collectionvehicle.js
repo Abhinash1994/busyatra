@@ -4,22 +4,21 @@ import TextField from '@material-ui/core/TextField';
 import DatePicker from "react-datepicker";
  import Button from '@material-ui/core/Button';
 import "react-datepicker/dist/react-datepicker.css";
-
 import Card from '@material-ui/core/Card';
-import Detailspassanger from '../vehicles/detailspassanger'
+import { Link } from 'react-router-dom';
 
 class Collectionvehicle extends Component {
 
 	 constructor(props) {
-    super(props);
-    this.state = {
-      startDate: new Date(),
-      visible: false ,
-      width: window.innerWidth
-      
-    };
-    this.handleChange = this.handleChange.bind(this);
-    this.toggleMenu = this.toggleMenu.bind(this);
+    	super(props);
+	    this.state = {
+	      startDate: new Date(),
+	      visible: false ,
+	      width: window.innerWidth
+	      
+	    };
+	    this.handleChange = this.handleChange.bind(this);
+	    this.toggleMenu = this.toggleMenu.bind(this);
 
   }
  	
@@ -54,7 +53,7 @@ class Collectionvehicle extends Component {
 
   render() {
   		const { width } = this.state;
-  		const isMobile = width <= 800;
+  		const isMobile = width <= 1000;
 
   		 if (isMobile) {
     return (
@@ -206,9 +205,13 @@ class Collectionvehicle extends Component {
       								 <div className="abhi_selecting_seats_info">
       								 	 		<h5> Seat(s) : B5</h5>
       								 	 		<h5> Total  : Rs.1000</h5>
-      								 	 		<Detailspassanger />
+      								 	 	<Link to="/details-passagner">
+		      								<Button variant="contained" color="secondary">
+												proceed to book
+											</Button>
+										</Link>
       								 </div>	
-
+      								 
       							</Grid>
       						</div>
 
@@ -223,11 +226,10 @@ class Collectionvehicle extends Component {
       
       	  <Grid className="total_vehicle_search" item xs={12} sm={12} md={12}  lg={12}	xl={12}>
 	      	  	<div className="vehicle_from_text">
-	      	  		<Grid container>
-	      	  			<Grid item sm={12} md={12} lg={10} xl={10}>
-
+	      	  			<Grid item  md={12} lg={10} xl={7}>
 	      	  					<Grid container>
-	      	  						<Grid item  sm={3} md={3} lg={3} xl={3}>
+
+	      	  						<Grid item  sm={4} md={3} lg={3} xl={3}>
 										  <div className="" style={{float:'left'}}>
 										  		<TextField
 										        id="outlined-dense"
@@ -244,7 +246,7 @@ class Collectionvehicle extends Component {
 												
 	      	  						</Grid>
 
-				      	  			<Grid item  sm={3} md={3} lg={3} xl={3}>
+				      	  			<Grid item sm={3} md={3} lg={3} xl={3}>
 				      	  				 <div className="" style={{float:'left'}}>
 										  		<TextField
 										        id="outlined-dense"
@@ -259,7 +261,7 @@ class Collectionvehicle extends Component {
 			      								<i className="fas fa-arrow-right"></i>
 			      							</div>
 				      	  			</Grid>
-				      	  			<Grid item sm={3} md={3} lg={3} xl={3}>
+				      	  			<Grid item sm={2} md={3} lg={3} xl={3}>
 				      	  				<div className="date_selected_vehicle" style={{position:'absolute'}}>
 					                  		<i className="fa fa-calendar icon-new_collection" aria-hidden="true" ></i>
 					                  		
@@ -270,7 +272,7 @@ class Collectionvehicle extends Component {
 											/>
 					                  	</div>
 				      	  			</Grid>
-				      	  			<Grid item xs={12} sm={3} md={3} lg={3} xl={3}>
+				      	  			<Grid item sm={2} md={3} lg={3} xl={3}>
 				      	  				<div className="search_collection_btn">
 					      	  				<Button variant="contained" color="secondary">
 											     Search
@@ -279,8 +281,6 @@ class Collectionvehicle extends Component {
 				      	  			</Grid>
 	      	  					</Grid>
 	      	  			</Grid>
-	      	  			
-	      	  		</Grid>
 	      	  	</div>
 
 
@@ -295,42 +295,48 @@ class Collectionvehicle extends Component {
 
 	      	  		 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{paddingBottom:'3rem'}}>
 	      	  		 	<Grid container className="row_sec">
-	      	  		 		<Grid item xs={4} sm={2} md={2} lg={4} xl={4}>
+	      	  		 		<Grid item  md={4} lg={4} xl={4}>
 	      	  		 			<div className="travels lh-24 f-bold d-color">
 	      	  		 				<h6 className="title"> Ashok travels mandsaur group</h6>
 	      	  		 				<h6 className="l-color"> A/C Seater / Sleeper (2+1)</h6>
 	      	  		 			</div>
 	      	  		 			
 	      	  		 		</Grid>
-	      	  		 		 <Grid item xs={8} sm={10} md={10} lg={8} xl={8}>
+	      	  		 		 <Grid item  md={8} lg={8} xl={8}>
 	      	  		 		 	<Grid container>
-	      	  		 		 		<Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+	      	  		 		 		<Grid item  md={2} lg={2} xl={2}>
 			      	  		 			<div className="travels lh-24 f-bold d-color">
+			      	  		 				<h6 className="bus_name"> Super Delux</h6>
+			      	  		 				<h6 className="bus_number">Ja.Ek.Pa 3333</h6>
+	      	  		 					</div>
+	      	  		 				</Grid>
+	      	  		 		 		<Grid item  md={2} lg={2} xl={2}>
+			      	  		 			<div className="travels lh-24 f-bold d-color" style={{textAlign:'center'}}>
 			      	  		 				<h6 className="title"> 18:00 </h6>
 			      	  		 				<h6 className="pick_up"> pick up</h6>
 	      	  		 					</div>
 	      	  		 				</Grid>
-	      	  		 				<Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
-			      	  		 			<h6 className="dur l-color lh-24"> 35h 45m </h6>
-	      	  		 				</Grid>
-	      	  		 				<Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
-			      	  		 			<div className="bp-time f-19 d-color ">
+	      	  		 				
+	      	  		 				<Grid item  md={2} lg={2} xl={2}>
+			      	  		 			<div className="bp-time f-19 d-color" style={{textAlign:'center'}}>
 			      	  		 				<h6 className="arrival"> 05:45 </h6>
 			      	  		 				<h6 className="pick_up"> dropoff</h6>
 			      	  		 			</div>
 			      	  		 			
 	      	  		 				</Grid>
-	      	  		 				<Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+	      	  		 				<Grid item  md={2} lg={2} xl={2} style={{textAlign:'center'}}>
 			      	  		 			<h6> Rating </h6>
-			      	  		 			<h6> 5</h6>
+			      	  		 			 <div className="rating_desktop">
+			      	  		 			 	<h6>3.5/5</h6>
+			      	  		 			 </div>	
 	      	  		 				</Grid>
-	      	  		 				<Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+	      	  		 				<Grid item  md={2} lg={2} xl={2}>
 			      	  		 			<div className="starts_fare">
 			      	  		 				<h6 className="starts_price"> Starts from </h6>
 			      	  		 				<h6 className="fare_price"> &#8377;200</h6>
 			      	  		 			</div>
 	      	  		 				</Grid>
-	      	  		 				<Grid item xs={2} sm={2} md={2} lg={2} xl={2}>
+	      	  		 				<Grid item  md={2} lg={2} xl={2} style={{textAlign:'center'}}>
 			      	  		 			<div className="starts_fare">
 			      	  		 				<h6 className="starts_price"> Seats Available </h6>
 			      	  		 				<h6 className="seats_availbale"> 6</h6>
@@ -347,18 +353,18 @@ class Collectionvehicle extends Component {
 	      	  		 		 
 
 
-	      	  		 		 <Grid className="selection_seat_from_bus" items xs={12} sm={12} md={12} lg={12} xl={12} style={this.state.visible ? {display:'block'}:{display:'none'}}>
+	      	  		 		 <Grid className="selection_seat_from_bus" item xs={12} sm={12} md={12} lg={12} xl={12} style={this.state.visible ? {display:'block'}:{display:'none'}}>
 	      	  		 		 	<Grid container spacing={3}>
 	      	  		 		 		<Grid item xs={8} sm={8} md={8} lg={8} xl={8}>
 	      	  		 		 			<Card className="seatchart">
 	      	  		 		 				<Grid container>
-	      	  		 		 					<Grid className="main_cart_seat_available" items xs={1} sm={1} md={1} lg={1} xl={1} >
+	      	  		 		 					<Grid className="main_cart_seat_available" item xs={1} sm={1} md={1} lg={1} xl={1} >
 	      	  		 		 						<div className="seat-wrap">
 	      	  		 		 							<img src="https://res.cloudinary.com/ddkyepakx/image/upload/v1563902752/abhi-operator.svg" alt="abhi-operator"/>
 	      	  		 		 					
 	      	  		 		 						</div>
 	      	  		 		 					</Grid>
-	      	  		 		 					<Grid className="seat_style_for_table" items xs={7} sm={7} md={7} lg={7} xl={7}>
+	      	  		 		 					<Grid className="seat_style_for_table" item xs={7} sm={7} md={7} lg={7} xl={7}>
 	      	  		 		 							<h6 className="select_seat_block"> Select Seat</h6>
 	      	  		 		 							<table >
 															  <tbody>
@@ -449,7 +455,7 @@ class Collectionvehicle extends Component {
 														</table>
 														
 	      	  		 		 					</Grid>
-	      	  		 		 					<Grid items xs={4} sm={4} md={4} lg={4} xl={4} style={{borderLeft: '1px solid #e0e0e0'}}>
+	      	  		 		 					<Grid item xs={4} sm={4} md={4} lg={4} xl={4} style={{borderLeft: '1px solid #e0e0e0'}}>
 	      	  		 		 						<div className="seat-wrap_availablity">
 	      	  		 		 							<h6> Check Seat </h6>
 	      	  		 		 							<ul>
@@ -481,7 +487,13 @@ class Collectionvehicle extends Component {
 	      	  		 		 						<h6>Amount : &#x20B9;1000</h6>
 	      	  		 		 					</div>
 	      	  		 		 					
-	      	  		 		 					<Detailspassanger />
+	      	  		 		 					<div className="proceed_book">
+	      	  		 		 					   <Link to="/details-passagner">
+		      										 	<Button variant="contained" color="secondary">
+															proceed to book
+														</Button>
+													</Link>
+												</div>
 
 	      	  		 		 			</Card>
 	      	  		 		 		</Grid>
