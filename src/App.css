@@ -421,6 +421,7 @@ a{
     margin-top: 20px;
     padding: 27px;
     padding-bottom: 5px;
+    background:#ffffff;
 }
 .row_sec:hover{
     box-shadow: 2px 2px 8px 1px #dec1c1;
