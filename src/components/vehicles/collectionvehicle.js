@@ -7,6 +7,8 @@ import "react-datepicker/dist/react-datepicker.css";
 import Card from '@material-ui/core/Card';
 import { Link } from 'react-router-dom';
 
+import axios from 'axios';
+
 class Collectionvehicle extends Component {
 
 	 constructor(props) {
@@ -14,6 +16,7 @@ class Collectionvehicle extends Component {
 	    this.state = {
 	      startDate: new Date(),
 	      visible: false ,
+	      data: [],
 	      width: window.innerWidth
 	      
 	    };
@@ -36,6 +39,17 @@ class Collectionvehicle extends Component {
 		  behavior: 'smooth'
 		});
     }
+
+    componentDidMount() {
+    	
+	    axios.get('http://localhost:5000/api/vehicle-data')
+      		.then(res => {
+	        this.setState({
+	          data: res.data
+	        });
+        	console.log("final data",this.state.data)
+      	})
+  	}
 
   componentWillMount() {
   		window.addEventListener('resize', this.handleWindowSizeChange);
@@ -223,7 +237,7 @@ class Collectionvehicle extends Component {
     );
   } else {
     return (
-      
+      	
       	  <Grid className="total_vehicle_search" item xs={12} sm={12} md={12}  lg={12}	xl={12}>
 	      	  	<div className="vehicle_from_text">
 	      	  			<Grid item  md={12} lg={10} xl={7}>
@@ -291,14 +305,17 @@ class Collectionvehicle extends Component {
 	      	  			</div>
 	      	  		</Grid>
 	      	  		
+	      	  		{this.state.data.map((data, i) => (
 
+	      	  		 <Grid key={i} item xs={12} sm={12} md={12} lg={12} xl={12} style={{paddingBottom:'3rem'}}>
 
-	      	  		 <Grid item xs={12} sm={12} md={12} lg={12} xl={12} style={{paddingBottom:'3rem'}}>
 	      	  		 	<Grid container className="row_sec">
-	      	  		 		<Grid item  md={4} lg={4} xl={4}>
+
+	      	  		 		<Grid item  md={4} lg={4} xl={4} >
 	      	  		 			<div className="travels lh-24 f-bold d-color">
-	      	  		 				<h6 className="title"> Ashok travels mandsaur group</h6>
-	      	  		 				<h6 className="l-color"> A/C Seater / Sleeper (2+1)</h6>
+	      	  		 				<h6 className="title"> {data.busInfo.busName}</h6>
+	      	  		 				<h6 className="l-color">{data.busInfo.facilities}</h6>
+	      	  		 				<h6 className="phonenumber"> Phone Number : {data.phoneNumber}</h6>
 	      	  		 			</div>
 	      	  		 			
 	      	  		 		</Grid>
@@ -307,19 +324,20 @@ class Collectionvehicle extends Component {
 	      	  		 		 		<Grid item  md={2} lg={2} xl={2}>
 			      	  		 			<div className="travels lh-24 f-bold d-color">
 			      	  		 				<h6 className="bus_name"> Super Delux</h6>
-			      	  		 				<h6 className="bus_number">Ja.Ek.Pa 3333</h6>
+			      	  		 				<h6 className="bus_number">{data.busInfo.busNumber}</h6>
 	      	  		 					</div>
 	      	  		 				</Grid>
 	      	  		 		 		<Grid item  md={2} lg={2} xl={2}>
 			      	  		 			<div className="travels lh-24 f-bold d-color" style={{textAlign:'center'}}>
-			      	  		 				<h6 className="title"> 18:00 </h6>
-			      	  		 				<h6 className="pick_up"> pick up</h6>
+			      	  		 				<h6 className="arrival">{data.arrivalTime} </h6>
+			      	  		 				<h6 className="pick_up"> pickup</h6>
 	      	  		 					</div>
 	      	  		 				</Grid>
 	      	  		 				
 	      	  		 				<Grid item  md={2} lg={2} xl={2}>
 			      	  		 			<div className="bp-time f-19 d-color" style={{textAlign:'center'}}>
-			      	  		 				<h6 className="arrival"> 05:45 </h6>
+			      	  		 				
+			      	  		 				<h6 className="title"> {data.departureTime}</h6>
 			      	  		 				<h6 className="pick_up"> dropoff</h6>
 			      	  		 			</div>
 			      	  		 			
@@ -327,19 +345,19 @@ class Collectionvehicle extends Component {
 	      	  		 				<Grid item  md={2} lg={2} xl={2} style={{textAlign:'center'}}>
 			      	  		 			<h6> Rating </h6>
 			      	  		 			 <div className="rating_desktop">
-			      	  		 			 	<h6>3.5/5</h6>
+			      	  		 			 	<h6>{data.rating}/5</h6>
 			      	  		 			 </div>	
 	      	  		 				</Grid>
 	      	  		 				<Grid item  md={2} lg={2} xl={2}>
 			      	  		 			<div className="starts_fare">
 			      	  		 				<h6 className="starts_price"> Starts from </h6>
-			      	  		 				<h6 className="fare_price"> &#8377;200</h6>
+			      	  		 				<h6 className="fare_price"> &#8377;{data.price}</h6>
 			      	  		 			</div>
 	      	  		 				</Grid>
 	      	  		 				<Grid item  md={2} lg={2} xl={2} style={{textAlign:'center'}}>
 			      	  		 			<div className="starts_fare">
 			      	  		 				<h6 className="starts_price"> Seats Available </h6>
-			      	  		 				<h6 className="seats_availbale"> 6</h6>
+			      	  		 				<h6 className="seats_availbale">{data.totalSeat}</h6>
 			      	  		 			</div>	
 			      	  		 			
 			      	  		 			<div className="show_bus_collection_btn">
@@ -506,12 +524,9 @@ class Collectionvehicle extends Component {
 	      	  		 		 
 	      	  		 	</Grid> 	
 	      	  		 </Grid>
+       				))}	
 
 
-
-
-
-	      	  		 
 	      	  	</div>
       	  </Grid>
      

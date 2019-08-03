@@ -870,3 +870,11 @@ a{
     font-size: 14px;
     margin-left: 2.2rem;
 }
+.d-color .phonenumber{
+    color: #757584;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 15px;
+}
