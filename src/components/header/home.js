@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Grid from '@material-ui/core/Grid';
 import DatePicker from "react-datepicker";
- 
-import "react-datepicker/dist/react-datepicker.css";
+ import "react-datepicker/dist/react-datepicker.css";
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 
+import axios from 'axios';
 
 class Home extends Component {
 	 constructor(props) {
@@ -14,7 +14,8 @@ class Home extends Component {
       startDate: new Date(),
       arrival_from:'',
       departure_to:'',
-      vehicle_select:'',
+	  vehicle_select:'',
+	  searchData:[]
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleArrival = this.handleArrival.bind(this);
@@ -39,15 +40,28 @@ class Home extends Component {
   handleVehicle(e){
   	this.setState({vehicle_select:e.target.value});
   }	
-  handleSubmit(e) {
-        e.preventDefault();
-        console.log(this.state.arrival_from);
-         console.log(this.state.departure_to);
-          console.log(this.state.vehicle_select);
-           console.log(this.state.startDate);
+
+  async handleSubmit(e) {
+		e.preventDefault();	
+		let params = {fromcity:this.state.arrival_from,tocity:this.state.departure_to,busid:this.state.vehicle_select};
+
+			await axios.get('http://localhost:5000/search',{params:params}).then(res=>{
+					
+			this.setState({
+				searchData: res.data,
+			  });
+
+				   console.log("data",this.state.searchData)
+			   
+			 })
+			.catch(function (error) {
+			   console.log("error");
+				alert('not Submitted, error');
+			 });
+		
   }
   render() {
-
+	let data=this.state.searchData;
     return (
       		<Grid container> 
       			<Grid className="banner_img_info" item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -58,23 +72,23 @@ class Home extends Component {
               					<h2>Book Your Tickets</h2>
               						
 					                  <select className="selectpicker_from" value={this.state.arrival_from} onChange={this.handleArrival}>
-					                    <option value="1">From *</option>
-					                    <option value="2">Jaleshwar</option>
-					                    <option value="3">Janakpur</option>
-					                    <option value="4">Kathmandu</option>
+					                    <option >From *</option>
+					                    <option >Jaleshwar</option>
+					                    <option >Janakpur</option>
+					                    <option >Kathmandu</option>
 					                  </select>
 
 					                  <select className="selectpicker_to" value={this.state.departure_to} onChange={this.handleDeparture}>
-					                    <option option="1">To *</option>
-					                    <option option="2">Jaleshwar</option>
-					                    <option option="3">Janakpur</option>
-					                    <option option="4">Kathmandu</option>
+					                    <option >To *</option>
+					                    <option >Jaleshwar</option>
+					                    <option >Janakpur</option>
+					                    <option >Kathmandu</option>
 					                  </select>	
 					                  <select className="selectpicker_to" value={this.state.vehicle_select} onChange={this.handleVehicle}>
-					                    <option option="1">Selected Bus/Micro *</option>
-					                    <option option="2">Bus</option>
-					                    <option option="3">Micro</option>
-					                    <option option="4">Car</option>
+					                    <option >Selected Bus/Micro *</option>
+					                    <option value="1">Micro</option>
+					                    <option value="2">Bus</option>
+					                    <option value="3">Car</option>
 					                  </select>
 					                  <div className="start_date_selected" style={{position:'absolute'}}>
 					                  		<i className="fa fa-calendar icon-calendar_icon-new" aria-hidden="true" ></i>
@@ -85,15 +99,18 @@ class Home extends Component {
 											    className="startdate_picker"
 											/>
 					                  </div>
-					                  <Link to="/search">	
+
+									  <Link to={'/search'}>
 						                  <div className="search_bus_button">
 							                  	<Button variant="contained" color="secondary" onClick={this.handleSubmit}>
 										        	Search Bus
 										      	</Button>
+											
 						                  </div>
-					                  </Link>
-
-      						</div>
+									 </Link>
+							   
+							  </div>
+							 
       					</Grid>
       					<Grid item xs={1} sm={3} md={4} lg={4} xl={4}></Grid>
       				</Grid>

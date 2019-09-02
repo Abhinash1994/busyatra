@@ -2,10 +2,11 @@ import React, { Component } from "react";
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import DatePicker from "react-datepicker";
- import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 import "react-datepicker/dist/react-datepicker.css";
 import Card from '@material-ui/core/Card';
 import { Link } from 'react-router-dom';
+import {connect} from 'react-redux';
 
 import axios from 'axios';
 
@@ -42,7 +43,7 @@ class Collectionvehicle extends Component {
 
     componentDidMount() {
     	
-	    axios.get('http://localhost:5000/api/vehicle-data')
+	    axios.get('http://localhost:5000/vehicle-data')
       		.then(res => {
 	        this.setState({
 	          data: res.data
@@ -68,7 +69,7 @@ class Collectionvehicle extends Component {
   render() {
   		const { width } = this.state;
   		const isMobile = width <= 1000;
-
+		// console.log(this.props);
   		 if (isMobile) {
     return (
       	
@@ -530,11 +531,17 @@ class Collectionvehicle extends Component {
 	      	  	</div>
       	  </Grid>
      
-    );
-  }
-}
+    	);
+  	}
+ }
     
+}
+
+  const mapStateToProps = (state) =>{
+	  return{
+		  data : state.name,  
+	  }
   }
 
 
-export default Collectionvehicle;
+export default connect(mapStateToProps)(Collectionvehicle);
