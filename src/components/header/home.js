@@ -3,7 +3,8 @@ import Grid from '@material-ui/core/Grid';
 import DatePicker from "react-datepicker";
  import "react-datepicker/dist/react-datepicker.css";
 import Button from '@material-ui/core/Button';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
+
 
 import axios from 'axios';
 
@@ -52,16 +53,17 @@ class Home extends Component {
 			  });
 
 				   console.log("data",this.state.searchData)
-			   
+				   
 			 })
 			.catch(function (error) {
 			   console.log("error");
 				alert('not Submitted, error');
 			 });
-		
-  }
+			 
+		  }
+		  	  
   render() {
-	let data=this.state.searchData;
+	  
     return (
       		<Grid container> 
       			<Grid className="banner_img_info" item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -100,19 +102,20 @@ class Home extends Component {
 											/>
 					                  </div>
 
-									  <Link to={'/search'}>
+									  
 						                  <div className="search_bus_button">
-							                  	<Button variant="contained" color="secondary" onClick={this.handleSubmit}>
+							                  	<Button id="bt" variant="contained" color="secondary" onClick={this.handleSubmit} >
 										        	Search Bus
 										      	</Button>
 											
 						                  </div>
-									 </Link>
+									
 							   
 							  </div>
 							 
       					</Grid>
       					<Grid item xs={1} sm={3} md={4} lg={4} xl={4}></Grid>
+						 
       				</Grid>
       			</Grid>	
     		  		
