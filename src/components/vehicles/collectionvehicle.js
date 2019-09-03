@@ -11,25 +11,31 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 
 class Collectionvehicle extends Component {
-
 	 constructor(props) {
     	super(props);
 	    this.state = {
-	      startDate: new Date(),
+		  startDate: new Date(),
+		  arrival_from: '',
+		  departure_to: '',
 	      visible: false ,
-	      data: [],
+	      searchData: [],
 	      width: window.innerWidth
-	      
 	    };
 	    this.handleChange = this.handleChange.bind(this);
-	    this.toggleMenu = this.toggleMenu.bind(this);
+		this.toggleMenu = this.toggleMenu.bind(this);
+		this.handleArrival = this.handleArrival.bind(this);
+		this.handleDeparture = this.handleDeparture.bind(this);
 
   }
- 	
+  handleArrival(e) {
+		this.setState({ arrival_from: e.target.value });
+	}
+	handleDeparture(e) {
+		this.setState({ departure_to: e.target.value });
+	}
   handleChange(date) {
     this.setState({
       startDate: date
-
     });
   }
    toggleMenu() {
@@ -41,17 +47,25 @@ class Collectionvehicle extends Component {
 		});
     }
 
-    componentDidMount() {
-    	
-	    axios.get('http://localhost:5000/vehicle-data')
-      		.then(res => {
-	        this.setState({
-	          data: res.data
-	        });
-        	console.log("final data",this.state.data)
-      	})
-  	}
+    async componentDidMount() {
+		const { showdata } = this.props.location.state;
+		let params = { fromcity: showdata.from, tocity: showdata.to, busid: showdata.busid };
+	    
+		await axios.get('http://localhost:5000/search', { params: params }).then(res => {
 
+			this.setState({
+				searchData: res.data,
+			});
+
+			console.log("data available", this.state.searchData)
+
+		})
+			.catch(function (error) {
+				console.log("error");
+				alert('not Submitted, error');
+			});
+	  }
+	  
   componentWillMount() {
   		window.addEventListener('resize', this.handleWindowSizeChange);
 	}
@@ -69,7 +83,9 @@ class Collectionvehicle extends Component {
   render() {
   		const { width } = this.state;
   		const isMobile = width <= 1000;
-		// console.log(this.props);
+		const { showdata } = this.props.location.state;
+		
+
   		 if (isMobile) {
     return (
       	
@@ -237,6 +253,7 @@ class Collectionvehicle extends Component {
       	</Grid>	
     );
   } else {
+
     return (
       	
       	  <Grid className="total_vehicle_search" item xs={12} sm={12} md={12}  lg={12}	xl={12}>
@@ -248,10 +265,11 @@ class Collectionvehicle extends Component {
 										  <div className="" style={{float:'left'}}>
 										  		<TextField
 										        id="outlined-dense"
-										        label="from"
 										        className="dense"
 										        margin="dense"
-										        variant="outlined"
+												variant="outlined"
+												value={showdata.from}
+												onChange={this.handleArrival}
 				      							/>
 										  </div>
 										  
@@ -268,7 +286,8 @@ class Collectionvehicle extends Component {
 										        label="To"
 										        className="dense"
 										        margin="dense"
-										        variant="outlined"
+												variant="outlined"
+												value={showdata.from}
 				      							/>
 										  </div>
 										  
@@ -306,7 +325,7 @@ class Collectionvehicle extends Component {
 	      	  			</div>
 	      	  		</Grid>
 	      	  		
-	      	  		{this.state.data.map((data, i) => (
+	      	  		{this.state.searchData.map((data, i) => (
 
 	      	  		 <Grid key={i} item xs={12} sm={12} md={12} lg={12} xl={12} style={{paddingBottom:'3rem'}}>
 
