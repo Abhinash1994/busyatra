@@ -12,19 +12,22 @@ import axios from 'axios';
 
 class Collectionvehicle extends Component {
 	 constructor(props) {
-    	super(props);
+		super(props);
+		const { showdata } = this.props.location.state;
 	    this.state = {
-		  startDate: new Date(),
-		  arrival_from: '',
-		  departure_to: '',
+		  startDate: showdata.date,
+		  arrival_from: showdata.from,
+		  departure_to: showdata.to,
 	      visible: false ,
-	      searchData: [],
+		  searchData: [],
+		  id:null,
 	      width: window.innerWidth
 	    };
 	    this.handleChange = this.handleChange.bind(this);
 		this.toggleMenu = this.toggleMenu.bind(this);
 		this.handleArrival = this.handleArrival.bind(this);
 		this.handleDeparture = this.handleDeparture.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
 
   }
   handleArrival(e) {
@@ -33,9 +36,9 @@ class Collectionvehicle extends Component {
 	handleDeparture(e) {
 		this.setState({ departure_to: e.target.value });
 	}
-  handleChange(date) {
+  handleChange(e) {
     this.setState({
-      startDate: date
+      startDate: e.target.value
     });
   }
    toggleMenu() {
@@ -48,14 +51,24 @@ class Collectionvehicle extends Component {
     }
 
     async componentDidMount() {
+			this.handleSubmit();
+	  }
+
+	  async handleSubmit(e) {
 		const { showdata } = this.props.location.state;
 		let params = { fromcity: showdata.from, tocity: showdata.to, busid: showdata.busid };
 	    
 		await axios.get('http://localhost:5000/search', { params: params }).then(res => {
 
-			this.setState({
-				searchData: res.data,
-			});
+			if (res.status === 200 && res != null){
+				this.setState({
+					searchData: res.data,
+				});
+			}
+			else{
+				alert("not found data ")
+			}
+			
 
 			console.log("data available", this.state.searchData)
 
@@ -64,8 +77,7 @@ class Collectionvehicle extends Component {
 				console.log("error");
 				alert('not Submitted, error');
 			});
-	  }
-	  
+	}
   componentWillMount() {
   		window.addEventListener('resize', this.handleWindowSizeChange);
 	}
@@ -83,7 +95,6 @@ class Collectionvehicle extends Component {
   render() {
   		const { width } = this.state;
   		const isMobile = width <= 1000;
-		const { showdata } = this.props.location.state;
 		
 
   		 if (isMobile) {
@@ -264,11 +275,12 @@ class Collectionvehicle extends Component {
 	      	  						<Grid item  sm={4} md={3} lg={3} xl={3}>
 										  <div className="" style={{float:'left'}}>
 										  		<TextField
-										        id="outlined-dense"
+												id="outlined-dense"
+												label="From"
 										        className="dense"
 										        margin="dense"
 												variant="outlined"
-												value={showdata.from}
+												value={this.state.arrival_from}
 												onChange={this.handleArrival}
 				      							/>
 										  </div>
@@ -287,7 +299,8 @@ class Collectionvehicle extends Component {
 										        className="dense"
 										        margin="dense"
 												variant="outlined"
-												value={showdata.from}
+												value={this.state.departure_to}
+												onChange={this.handleDeparture}
 				      							/>
 										  </div>
 										  
@@ -306,9 +319,9 @@ class Collectionvehicle extends Component {
 											/>
 					                  	</div>
 				      	  			</Grid>
-				      	  			<Grid item sm={2} md={3} lg={3} xl={3}>
+				      	  			<Grid item sm={2} md={3} lg={3} xl={3} >
 				      	  				<div className="search_collection_btn">
-					      	  				<Button variant="contained" color="secondary">
+					      	  				<Button variant="contained" color="secondary" onClick={this.handleSubmit}>
 											     Search
 											  </Button>
 										  </div>
@@ -380,10 +393,13 @@ class Collectionvehicle extends Component {
 			      	  		 				<h6 className="seats_availbale">{data.totalSeat}</h6>
 			      	  		 			</div>	
 			      	  		 			
-			      	  		 			<div className="show_bus_collection_btn">
-								      	  	<Button variant="contained" color="secondary" onClick={this.toggleMenu}>
-												View Seat
-											</Button>
+			      	  		 			<div className="show_bus_collection_btn" data-id={data._id}>
+											
+												<Button  variant="contained" 		color="secondary" onClick={this.toggleMenu}>
+												   View Seat
+												</Button>	
+											 
+								      	  	
 										</div>
 	      	  		 				</Grid>
 	      	  		 		 	</Grid>

@@ -18,8 +18,6 @@ class Home extends Component {
 		this.handleArrival = this.handleArrival.bind(this);
 		this.handleDeparture = this.handleDeparture.bind(this);
 		this.handleVehicle = this.handleVehicle.bind(this);
-
-		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
 	handleChange(date) {
@@ -41,7 +39,6 @@ class Home extends Component {
 	 handleSubmit(e) {
 		e.preventDefault();
 		
-
 	}
 
 	render() {
@@ -86,7 +83,7 @@ class Home extends Component {
 								
 						    	<div className="search_bus_button">
 									
-									<Button id="bt" variant="contained" color="secondary" onClick={this.handleSubmit} >
+									<Button id="bt" variant="contained" color="secondary" >
 										<Link to={{
 											pathname: '/search',
 											state: {
