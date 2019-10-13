@@ -88,7 +88,9 @@ class Home extends Component {
 											pathname: '/search',
 											state: {
 														showdata:{
-															date:this.state.startDate,from:this.state.arrival_from,to:this.state.departure_to,busid:this.state.vehicle_select
+															date:this.state.startDate,
+															from:this.state.arrival_from,
+															to:this.state.departure_to,busid:this.state.vehicle_select
 														} 
 													}
 												}}>

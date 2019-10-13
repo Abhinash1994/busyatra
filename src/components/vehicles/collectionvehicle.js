@@ -23,6 +23,7 @@ class Collectionvehicle extends Component {
 			seatA: [],
 			seatB: [],
 			id: null,
+			seatnumber:'',
 			width: window.innerWidth
 		};
 		this.handleChange = this.handleChange.bind(this);
@@ -30,7 +31,7 @@ class Collectionvehicle extends Component {
 		this.handleArrival = this.handleArrival.bind(this);
 		this.handleDeparture = this.handleDeparture.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
-		// this.SeatManagement = this.SeatManagement.bind(this);
+		this.getSeat = this.getSeat.bind(this);
 	}
 	handleArrival(e) {
 		this.setState({ arrival_from: e.target.value });
@@ -46,13 +47,16 @@ class Collectionvehicle extends Component {
 	toggleMenu() {
 		this.setState({ visible: !this.state.visible });
 		window.scroll({
-			top: 200,
-			left: 100,
+			// top: 200,
+			// left: 100,
 			behavior: 'smooth'
 		});
 	}
 
-
+	getSeat = data => event => {
+		var seatnumber = data.seat;
+		this.setState({ seatnumber: seatnumber });
+	  }	
 	async componentDidMount() {
 		this.handleSubmit();
 	}
@@ -67,13 +71,12 @@ class Collectionvehicle extends Component {
 				this.setState({
 					searchData: res.data,
 				});
-
 			}
 			else {
 				alert("not found data ")
 			}
 
-			console.log("all bus", this.state.searchData)
+			console.log("all data", this.state.searchData)
 
 		})
 			.catch(function (error) {
@@ -98,8 +101,6 @@ class Collectionvehicle extends Component {
 	render() {
 		const { width } = this.state;
 		const isMobile = width <= 1000;
-
-
 		if (isMobile) {
 			return (
 
@@ -325,7 +326,7 @@ class Collectionvehicle extends Component {
 									<div className="search_collection_btn">
 										<Button variant="contained" color="secondary" onClick={this.handleSubmit}>
 											Search
-											  </Button>
+										</Button>
 									</div>
 								</Grid>
 							</Grid>
@@ -424,51 +425,40 @@ class Collectionvehicle extends Component {
 															<h6 className="select_seat_block"> Select Seat</h6>
 															{
 																data.seat.map((a, i) => (
-																	<table >
-																		<tbody>
-																		<tr>
-																				{
-																					a.resultB.map((data, i) => (
-																						
-																							<td>
-																								<div className="seat-management-info">{data.seat}</div>
-																							</td>
-																						
+																	<Grid container>
+																		<Grid item md={1} lg={1} xl={1} style={{ display: 'contents' }}>
+																			{
+																				a.side_A.map((data, i) => (
 
+																					<div key={i} className="seat-management-info" onClick={this.getSeat(data)}>{data.seat}</div>
+																				))
+																			}
 
-																					))
-																				}
-																			</tr>
-																		</tbody>
-																	</table>
-
+																		</Grid>
+																	</Grid>
 																))
 															}
 
-															
+
 															{
 																data.seat.map((a, i) => (
-																	<table className="seat_style_for_table">
-																		<tbody>
-																		<tr>
-																				{
-																					a.resultA.map((data, i) => (
-																						
-																							<td>
-																								<div className="seat-management-info">{data.seat}</div>
-																							</td>
-																						
+																	<Grid container style={{ marginTop: '1rem' }}>
+																		<Grid item md={1} lg={1} xl={1} style={{ display: 'contents' }}>
 
+																			{
+																				a.side_B.map((data, i) => (
 
-																					))
-																				}
-																			</tr>
-																		</tbody>
-																	</table>
+																					<div className="seat-management-info">{data.seat}</div>
+
+																				))
+																			}
+
+																		</Grid>
+																	</Grid>
 
 																))
 															}
-															
+
 
 														</Grid>
 														<Grid item xs={4} sm={4} md={4} lg={4} xl={4} style={{ borderLeft: '1px solid #e0e0e0' }}>
@@ -495,12 +485,12 @@ class Collectionvehicle extends Component {
 												<Card className="payment_bus_detail_info">
 													<h5 className="title">Details Your Ticket</h5>
 													<div className="inner_details">
-														<h6>Boarding point : Janakpur</h6>
-														<h6>Dropping point : Kathmandu</h6>
+														<h6>Boarding point : {this.state.arrival_from} </h6>
+														<h6>Dropping point : {this.state.departure_to}</h6>
 													</div>
 													<div className="detail_amount">
-														<h6>Seat(s) : B-24</h6>
-														<h6>Amount : &#x20B9;1000</h6>
+														<h6 >Seat(s) : B-{this.state.seatnumber}</h6>
+														<h6 >Amount : &#x20B9;{data.price}</h6>
 													</div>
 
 													<div className="proceed_book">
