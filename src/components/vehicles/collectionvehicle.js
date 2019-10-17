@@ -23,7 +23,7 @@ class Collectionvehicle extends Component {
 			seatA: [],
 			seatB: [],
 			id: null,
-			seatnumber:'',
+			seatnumber:[],
 			width: window.innerWidth
 		};
 		this.handleChange = this.handleChange.bind(this);
@@ -54,8 +54,16 @@ class Collectionvehicle extends Component {
 	}
 
 	getSeat = data => event => {
-		var seatnumber = data.seat;
-		this.setState({ seatnumber: seatnumber });
+
+	// var joined = this.state.seatnumber.concat(data.seat);
+	// this.setState({ seatnumber: joined })
+		var reserve = [...this.state.seatnumber];
+			reserve.push(data.seat);
+			this.setState(() => {
+				return {
+					seatnumber: reserve,
+				};
+			});
 	  }	
 	async componentDidMount() {
 		this.handleSubmit();
@@ -268,7 +276,7 @@ class Collectionvehicle extends Component {
 				</Grid>
 			);
 		} else {
-
+			
 			return (
 
 				<Grid className="total_vehicle_search" item xs={12} sm={12} md={12} lg={12} xl={12}>
@@ -489,7 +497,7 @@ class Collectionvehicle extends Component {
 														<h6>Dropping point : {this.state.departure_to}</h6>
 													</div>
 													<div className="detail_amount">
-														<h6 >Seat(s) : B-{this.state.seatnumber}</h6>
+														<h6 >Seat(s) : {'B'+this.state.seatnumber}</h6>
 														<h6 >Amount : &#x20B9;{data.price}</h6>
 													</div>
 
