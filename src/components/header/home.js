@@ -53,16 +53,16 @@ class Home extends Component {
 
 								<select className="selectpicker_from" value={this.state.arrival_from} onChange={this.handleArrival}>
 									<option >From *</option>
-									<option >Jaleshwar</option>
-									<option >Janakpur</option>
-									<option >Kathmandu</option>
+									<option >jaleshwar</option>
+									<option >janakpur</option>
+									<option >kathmandu</option>
 								</select>
 
 								<select className="selectpicker_to" value={this.state.departure_to} onChange={this.handleDeparture}>
 									<option >To *</option>
-									<option >Jaleshwar</option>
-									<option >Janakpur</option>
-									<option >Kathmandu</option>
+									<option >jaleshwar</option>
+									<option >janakpur</option>
+									<option >kathmandu</option>
 								</select>
 								<select className="selectpicker_to" value={this.state.vehicle_select} onChange={this.handleVehicle}>
 									<option >Selected Bus/Micro *</option>

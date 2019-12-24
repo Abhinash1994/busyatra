@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import Card from '@material-ui/core/Card';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-
+import Seatdetails from '../seat-management/seat' 
 import axios from 'axios';
 
 class Collectionvehicle extends Component {
@@ -23,11 +23,10 @@ class Collectionvehicle extends Component {
 			seatA: [],
 			seatB: [],
 			id: null,
-			seatnumber:[],
+			seatnumber: [],
 			width: window.innerWidth
 		};
 		this.handleChange = this.handleChange.bind(this);
-		this.toggleMenu = this.toggleMenu.bind(this);
 		this.handleArrival = this.handleArrival.bind(this);
 		this.handleDeparture = this.handleDeparture.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -44,7 +43,7 @@ class Collectionvehicle extends Component {
 			startDate: e.target.value
 		});
 	}
-	toggleMenu() {
+	toggleMenu= id=> {
 		this.setState({ visible: !this.state.visible });
 		window.scroll({
 			// top: 200,
@@ -54,17 +53,14 @@ class Collectionvehicle extends Component {
 	}
 
 	getSeat = data => event => {
-
-	// var joined = this.state.seatnumber.concat(data.seat);
-	// this.setState({ seatnumber: joined })
 		var reserve = [...this.state.seatnumber];
-			reserve.push(data.seat);
-			this.setState(() => {
-				return {
-					seatnumber: reserve,
-				};
-			});
-	  }	
+		reserve.push(data.seat);
+		this.setState(() => {
+			return {
+				seatnumber: reserve,
+			};
+		});
+	}
 	async componentDidMount() {
 		this.handleSubmit();
 	}
@@ -74,7 +70,6 @@ class Collectionvehicle extends Component {
 		let params = { fromcity: showdata.from, tocity: showdata.to, busid: showdata.busid };
 
 		await axios.get('http://localhost:5000/search', { params: params }).then(res => {
-
 			if (res.status === 200 && res != null) {
 				this.setState({
 					searchData: res.data,
@@ -83,14 +78,13 @@ class Collectionvehicle extends Component {
 			else {
 				alert("not found data ")
 			}
-
 			console.log("all data", this.state.searchData)
 
 		})
-			.catch(function (error) {
-				console.log("error");
-				alert('not Submitted, error');
-			});
+		.catch(function (error) {
+			console.log("error");
+			alert('not Submitted, error');
+		});
 	}
 	componentWillMount() {
 		window.addEventListener('resize', this.handleWindowSizeChange);
@@ -276,9 +270,7 @@ class Collectionvehicle extends Component {
 				</Grid>
 			);
 		} else {
-			
 			return (
-
 				<Grid className="total_vehicle_search" item xs={12} sm={12} md={12} lg={12} xl={12}>
 					<div className="vehicle_from_text">
 						<Grid item md={12} lg={10} xl={7}>
@@ -404,9 +396,9 @@ class Collectionvehicle extends Component {
 													<h6 className="seats_availbale">{data.totalSeat}</h6>
 												</div>
 
-												<div className="show_bus_collection_btn" data-id={data._id}>
+												<div className="show_bus_collection_btn" >
 
-													<Button variant="contained" color="secondary" onClick={this.toggleMenu}>
+													<Button variant="contained" color="secondary" onClick={()=>this.toggleMenu(data._id)}>
 														View Seat
 												</Button>
 
@@ -431,24 +423,19 @@ class Collectionvehicle extends Component {
 														</Grid>
 														<Grid className="seat_style_for_table" item xs={7} sm={7} md={7} lg={7} xl={7}>
 															<h6 className="select_seat_block"> Select Seat</h6>
-															{
-																data.seat.map((a, i) => (
-																	<Grid container>
-																		<Grid item md={1} lg={1} xl={1} style={{ display: 'contents' }}>
-																			{
-																				a.side_A.map((data, i) => (
+															
+																	{/* // <Grid container>
+																	// 	<Grid item md={1} lg={1} xl={1} style={{ display: 'contents' }}>
 
-																					<div key={i} className="seat-management-info" onClick={this.getSeat(data)}>{data.seat}</div>
-																				))
-																			}
+																	// 		<div key={i} className="seat-management-info" onClick={this.getSeat(data)}>{data.seatNumber}</div>
 
-																		</Grid>
-																	</Grid>
-																))
-															}
+																	// 	</Grid>
+																	// </Grid> */}
+																	<Seatdetails seatdata = {data}/>
+															
 
 
-															{
+															{/* {
 																data.seat.map((a, i) => (
 																	<Grid container style={{ marginTop: '1rem' }}>
 																		<Grid item md={1} lg={1} xl={1} style={{ display: 'contents' }}>
@@ -465,7 +452,7 @@ class Collectionvehicle extends Component {
 																	</Grid>
 
 																))
-															}
+															} */}
 
 
 														</Grid>
@@ -497,7 +484,7 @@ class Collectionvehicle extends Component {
 														<h6>Dropping point : {this.state.departure_to}</h6>
 													</div>
 													<div className="detail_amount">
-														<h6 >Seat(s) : {'B'+this.state.seatnumber}</h6>
+														<h6 >Seat(s) : {'B' + this.state.seatnumber}</h6>
 														<h6 >Amount : &#x20B9;{data.price}</h6>
 													</div>
 
